@@ -2,3 +2,22 @@ modules = ["python-3.12"]
 
 [nix]
 channel = "stable-24_05"
+
+[workflows]
+
+[[workflows.workflow]]
+name = "push"
+mode = "sequential"
+author = 34864128
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git add -A"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git commit -m \"some updates\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "git push"
